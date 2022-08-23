@@ -13,7 +13,7 @@ module "uselessnerd-logging-destination" {
   source  = "terraform-google-modules/log-export/google//modules/logbucket"
   version = "~> 7.4.1"
 
-  project_id               = module.logging-gc389-sd582.project_id
+  project_id               = module.logging-chp001-0822.project_id
   name                     = "uselessnerd-logging"
   location                 = "global"
   retention_days           = 90
