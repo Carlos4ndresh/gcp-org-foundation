@@ -1,7 +1,7 @@
 # VPC and Subnets
 module "vpc-host-dev" {
   source  = "terraform-google-modules/network/google"
-  version = "~> 5.0"
+  version = "~> 6.0"
 
   project_id   = module.vpc-host-dev-chp001-0822.project_id
   network_name = "vpc-host-dev"
@@ -102,7 +102,7 @@ resource "google_compute_router" "rt-vpc-host-dev-1000-egress-internet-default" 
 # VPC and Subnets
 module "vpc-host-nonprod" {
   source  = "terraform-google-modules/network/google"
-  version = "~> 5.0"
+  version = "~> 6.0"
 
   project_id   = module.vpc-host-nonprod-chp001-0822.project_id
   network_name = "vpc-host-nonprod"
@@ -203,7 +203,7 @@ resource "google_compute_router" "rt-vpc-host-nonprod-1000-egress-internet-defau
 # VPC and Subnets
 module "vpc-host-prod" {
   source  = "terraform-google-modules/network/google"
-  version = "~> 5.0"
+  version = "~> 6.0"
 
   project_id   = module.vpc-host-prod-chp001-0822.project_id
   network_name = "vpc-host-prod"
