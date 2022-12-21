@@ -98,4 +98,9 @@ module "gcp-ide-cloud-dev-chp001-0822" {
 
   billing_account      = var.billing_account
   svpc_host_project_id = module.vpc-host-dev-chp001-0822.project_id
+
+  activate_apis = [
+    "compute.googleapis.com",
+    "run.googleapis.com"
+  ]
 }
