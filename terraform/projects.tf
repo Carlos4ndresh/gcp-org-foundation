@@ -88,19 +88,36 @@ module "vpc-host-prod-chp001-0822" {
   billing_account = var.billing_account
 }
 
-module "gcp-ide-cloud-dev-chp001-0822" {
+module "gcp-ide-cloud-dev-chp001" {
   source = "terraform-google-modules/project-factory/google"
 
-  name       = "gcp-ide-cloud"
-  project_id = "gcp-ide-cloud-chp001-0822"
-  org_id     = var.org_id
-  folder_id  = google_folder.development.name
+  name              = "gcp-ide-cloud"
+  project_id        = "gcp-ide-cloud-chp001"
+  random_project_id = true
+  org_id            = var.org_id
+  folder_id         = google_folder.development.name
 
   billing_account      = var.billing_account
   svpc_host_project_id = module.vpc-host-dev-chp001-0822.project_id
+  # shared_vpc_subnets   = module.vpc-host-dev.subnets_self_links
 
   activate_apis = [
     "compute.googleapis.com",
-    "run.googleapis.com"
+    "run.googleapis.com",
+    "container.googleapis.com",
+    "vpcaccess.googleapis.com",
+    "networkmanagement.googleapis.com",
+    "monitoring.googleapis.com",
+    "artifactregistry.googleapis.com"
+  ]
+  activate_api_identities = [
+    {
+      api = "run.googleapis.com"
+      roles = [
+        "roles/run.admin",
+        "roles/run.developer",
+        "roles/run.invoker"
+      ]
+    }
   ]
 }
