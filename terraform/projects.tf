@@ -62,6 +62,8 @@ module "vpc-host-dev-chp001-0822" {
     "compute.googleapis.com",
     "cloudresourcemanager.googleapis.com"
   ]
+
+
 }
 
 module "vpc-host-nonprod-chp001-0822" {
@@ -74,6 +76,26 @@ module "vpc-host-nonprod-chp001-0822" {
   folder_id  = google_folder.common.name
 
   billing_account = var.billing_account
+
+  activate_apis = [
+    "compute.googleapis.com",
+    "run.googleapis.com",
+    "container.googleapis.com",
+    "vpcaccess.googleapis.com",
+    "networkmanagement.googleapis.com",
+    "monitoring.googleapis.com",
+    "artifactregistry.googleapis.com"
+  ]
+  activate_api_identities = [
+    {
+      api = "run.googleapis.com"
+      roles = [
+        "roles/run.admin",
+        "roles/run.developer",
+        "roles/run.invoker"
+      ]
+    }
+  ]
 }
 
 module "vpc-host-prod-chp001-0822" {
@@ -86,6 +108,27 @@ module "vpc-host-prod-chp001-0822" {
   folder_id  = google_folder.common.name
 
   billing_account = var.billing_account
+
+  activate_apis = [
+    "compute.googleapis.com",
+    "run.googleapis.com",
+    "container.googleapis.com",
+    "vpcaccess.googleapis.com",
+    "networkmanagement.googleapis.com",
+    "monitoring.googleapis.com",
+    "artifactregistry.googleapis.com"
+  ]
+  activate_api_identities = [
+    {
+      api = "run.googleapis.com"
+      roles = [
+        "roles/run.admin",
+        "roles/run.developer",
+        "roles/run.invoker"
+      ]
+    }
+  ]
+
 }
 
 module "gcp-ide-cloud-dev-chp001" {

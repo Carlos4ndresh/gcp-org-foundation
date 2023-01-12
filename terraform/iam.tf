@@ -5,15 +5,15 @@ module "organization-iam" {
   organizations = ["380919848735"]
 
   bindings = {
-    
+
     "roles/billing.admin" = [
       "group:gcp-billing-admins@uselessnerd.com",
     ]
-    
+
     "roles/resourcemanager.organizationAdmin" = [
       "group:gcp-organization-admins@uselessnerd.com",
     ]
-    
+
   }
 }
 
@@ -25,15 +25,19 @@ module "development-iam" {
   folders = [google_folder.development.name]
 
   bindings = {
-    
+
     "roles/compute.instanceAdmin.v1" = [
       "group:gcp-developers@uselessnerd.com",
     ]
-    
+
     "roles/container.admin" = [
       "group:gcp-developers@uselessnerd.com",
     ]
-    
+
+    "roles/iap.tunnelResourceAccessor" = [
+      "group:gcp-developers@uselessnerd.com",
+    ]
+
   }
 }
 
@@ -45,14 +49,18 @@ module "non-production-iam" {
   folders = [google_folder.non-production.name]
 
   bindings = {
-    
+
     "roles/compute.instanceAdmin.v1" = [
       "group:gcp-developers@uselessnerd.com",
     ]
-    
+
     "roles/container.admin" = [
       "group:gcp-developers@uselessnerd.com",
     ]
-    
+
+    "roles/iap.tunnelResourceAccessor" = [
+      "group:gcp-developers@uselessnerd.com",
+    ]
+
   }
 }

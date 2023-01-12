@@ -90,6 +90,26 @@ resource "google_compute_firewall" "vpc-host-dev-allow-icmp" {
     "10.128.0.0/9",
   ]
 }
+
+resource "google_compute_firewall" "vpc-host-dev-allow-http" {
+  name      = "vpc-host-dev-allow-http"
+  network   = module.vpc-host-dev.network_name
+  project   = module.vpc-host-dev-chp001-0822.project_id
+  direction = "INGRESS"
+  priority  = 10000
+
+  log_config {
+    metadata = "INCLUDE_ALL_METADATA"
+  }
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80", "443"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+
+}
 # NAT Router and config
 resource "google_compute_router" "rt-vpc-host-dev-1000-egress-internet-default" {
   name    = "rt-vpc-host-dev-1000-egress-internet-default"
