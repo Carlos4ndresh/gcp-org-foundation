@@ -116,7 +116,6 @@ module "vpc-host-prod-chp001-0822" {
     "vpcaccess.googleapis.com",
     "networkmanagement.googleapis.com",
     "monitoring.googleapis.com",
-    "artifactregistry.googleapis.com"
   ]
   activate_api_identities = [
     {
@@ -151,7 +150,8 @@ module "gcp-ide-cloud-dev-chp001" {
     "vpcaccess.googleapis.com",
     "networkmanagement.googleapis.com",
     "monitoring.googleapis.com",
-    "artifactregistry.googleapis.com"
+    "artifactregistry.googleapis.com",
+    "identitytoolkit.googleapis.com"
   ]
   activate_api_identities = [
     {
