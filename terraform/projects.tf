@@ -148,7 +148,6 @@ module "gcp-ide-cloud-dev-chp001" {
     "run.googleapis.com",
     "container.googleapis.com",
     "vpcaccess.googleapis.com",
-    "networkmanagement.googleapis.com",
     "monitoring.googleapis.com",
     "artifactregistry.googleapis.com",
     "identitytoolkit.googleapis.com",
