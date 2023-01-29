@@ -151,7 +151,12 @@ module "gcp-ide-cloud-dev-chp001" {
     "networkmanagement.googleapis.com",
     "monitoring.googleapis.com",
     "artifactregistry.googleapis.com",
-    "identitytoolkit.googleapis.com"
+    "identitytoolkit.googleapis.com",
+    "secretmanager.googleapis.com",
+    "sqladmin.googleapis.com",
+    "sql-component.googleapis.com",
+    "cloudbuild.googleapis.com",
+    "containerregistry.googleapis.com"
   ]
   activate_api_identities = [
     {
