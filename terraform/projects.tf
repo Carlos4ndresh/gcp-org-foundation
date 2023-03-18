@@ -155,7 +155,8 @@ module "gcp-ide-cloud-dev-chp001" {
     "sqladmin.googleapis.com",
     "sql-component.googleapis.com",
     "cloudbuild.googleapis.com",
-    "containerregistry.googleapis.com"
+    "containerregistry.googleapis.com",
+    "certificatemanager.googleapis.com"
   ]
   activate_api_identities = [
     {
